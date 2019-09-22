@@ -6,10 +6,10 @@ const ActiveQuiz = props => (
     <div className = 'ActiveQuiz'>
         <p className='Question'>
             <span>
-                <strong>2. </strong>
+                <strong>{ props.answerNumber }.</strong>&nbsp;
                 {props.question}
             </span>
-            <small>4 from 12</small>
+            <small>{ props.answerNumber } from { props.quizLength }</small>
         </p>
 
         <AnswersList 
