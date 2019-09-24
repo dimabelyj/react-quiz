@@ -36,6 +36,15 @@ class Quiz extends Component {
     onAnswerClickHandler = (answerId) => {
         console.log('Answer id: ', answerId)
 
+        //проверка, чтоб после двойного нажатия на правильный ответ не обрабатывался click на следующем ответе и не завершался опросник(если это был предпоследний вопрос)
+
+        if (this.state.answerState) {
+            const key = Object.keys(this.state.answerState)[0]
+            if (this.state.answerState[key] === 'success') {
+                return
+            }
+        }
+
         const question = this.state.quiz[this.state.activeQuestion]
 
         if(question.rightAnswerId === answerId){
@@ -65,11 +74,11 @@ class Quiz extends Component {
         }
     }
 
-    isQuizFinished() {
+    isQuizFinished(){
         return this.state.activeQuestion + 1 === this.state.quiz.length
     }
 
-    render() {
+    render(){
         return (
             <div className='Quiz'>
                 <div className='QuizWrapper'>

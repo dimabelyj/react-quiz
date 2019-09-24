@@ -3,16 +3,14 @@ import classes from './AnswerItem.scss';
 
 const AnswerItem = props => {
     
-    const cls = [AnswerItem]
+    //const cls = [classes.AnswerItem]
 
-    if (props.state) {
-        cls.push([props.state])
-    }
+    // if (props.state) {
+    //     cls.push(classes[props.state])
+    // }
 
     return (
-        <li className= 'AnswerItem' //{cls.join(' ')}
-            // className= 'AnswerItem.success'
-            // className= 'AnswerItem.error'
+        <li className='AnswerItem'  //{cls.join(' ')}
             onClick={() => props.onAnswerClick(props.answer.id)}
         >
             {props.answer.text}
