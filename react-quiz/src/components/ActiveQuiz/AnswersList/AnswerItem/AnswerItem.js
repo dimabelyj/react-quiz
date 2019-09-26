@@ -10,7 +10,8 @@ const AnswerItem = props => {
     // }
 
     return (
-        <li className='AnswerItem'  //{cls.join(' ')}
+        <li //{props.state ? className='success' : className='error'}
+            className='AnswerItem'  //{cls.join(' ')}
             onClick={() => props.onAnswerClick(props.answer.id)}
         >
             {props.answer.text}
