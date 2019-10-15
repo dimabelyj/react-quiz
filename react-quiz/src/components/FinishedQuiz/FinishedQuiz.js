@@ -2,6 +2,15 @@ import React from 'react';
 import classes from './FinishedQuiz.scss';
 
 const FinishedQuiz = props => {
+
+    const successCount = Object.keys(props.results).reduce((total, key) => {
+        if (props.results[key] === 'success'){
+            total++
+        }
+
+        return total
+    }, 0)
+
     return (
         <div className='FinishedQuiz'>
             <ul>
@@ -34,10 +43,10 @@ const FinishedQuiz = props => {
                 </li> */}
             </ul>
 
-            <p>Right answers 4 from 12</p>
+            <p>Right answers {successCount} from {props.quiz.length}</p>
 
             <div>
-                <button>Again?</button>
+                <button onClick={props.onRetry}>Again?</button>
             </div>
         </div>
     )
